@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
@@ -17,7 +17,7 @@
             background-color: #f5f7fa;
             color: #333;
             line-height: 1.6;
-            padding: 20px;
+            padding: 15px;
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -25,12 +25,12 @@
         .container {
             display: flex;
             flex-direction: column;
-            gap: 25px;
+            gap: 20px;
         }
         
         header {
             text-align: center;
-            padding: 20px;
+            padding: 20px 15px;
             background: linear-gradient(135deg, #4b6cb7, #182848);
             color: white;
             border-radius: 10px;
@@ -38,43 +38,49 @@
         }
         
         h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
+            font-size: 1.8rem;
+            margin-bottom: 8px;
         }
         
         .subtitle {
-            font-size: 1.1rem;
+            font-size: 0.95rem;
             opacity: 0.9;
         }
         
         .main-content {
             display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 25px;
+            grid-template-columns: 1fr;
+            gap: 20px;
         }
         
-        @media (max-width: 900px) {
+        @media (min-width: 768px) {
             .main-content {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .main-content {
+                grid-template-columns: 1fr 2fr;
             }
         }
         
         .form-section, .preview-section {
             background-color: white;
             border-radius: 10px;
-            padding: 25px;
+            padding: 20px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
         
         .section-title {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             color: #182848;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
             border-bottom: 2px solid #eaeaea;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
         
         .section-title i {
@@ -82,28 +88,30 @@
         }
         
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
         
         label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             font-weight: 600;
             color: #555;
+            font-size: 0.95rem;
         }
         
         input, select, textarea {
             width: 100%;
-            padding: 12px;
+            padding: 10px 12px;
             border: 1px solid #ddd;
             border-radius: 6px;
-            font-size: 1rem;
+            font-size: 0.95rem;
             transition: border-color 0.3s;
         }
         
         input:focus, select:focus, textarea:focus {
             border-color: #4b6cb7;
             outline: none;
+            box-shadow: 0 0 0 2px rgba(75, 108, 183, 0.2);
         }
         
         textarea {
@@ -113,22 +121,29 @@
         
         .form-row {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr;
             gap: 15px;
         }
         
+        @media (min-width: 480px) {
+            .form-row {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
         .btn {
-            padding: 12px 24px;
+            padding: 10px 16px;
             border: none;
             border-radius: 6px;
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-            display: flex;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: 6px;
+            white-space: nowrap;
         }
         
         .btn-primary {
@@ -178,81 +193,107 @@
         
         .form-actions {
             display: flex;
-            gap: 10px;
-            margin-top: 25px;
+            gap: 8px;
+            margin-top: 20px;
+        }
+        
+        .form-actions .btn {
+            flex: 1;
         }
         
         .itinerary-list {
-            max-height: 400px;
+            max-height: 350px;
             overflow-y: auto;
             border: 1px solid #eee;
             border-radius: 6px;
             padding: 10px;
+            margin-top: 10px;
         }
         
         .itinerary-item {
-            padding: 15px;
-            margin-bottom: 12px;
+            padding: 12px;
+            margin-bottom: 10px;
             background-color: #f8f9fa;
             border-left: 4px solid #4b6cb7;
             border-radius: 6px;
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-start;
+            flex-direction: column;
+        }
+        
+        @media (min-width: 480px) {
+            .itinerary-item {
+                flex-direction: row;
+                align-items: center;
+            }
         }
         
         .itinerary-item:hover {
             background-color: #e9ecef;
         }
         
+        .item-content {
+            flex: 1;
+            margin-bottom: 8px;
+        }
+        
+        @media (min-width: 480px) {
+            .item-content {
+                margin-bottom: 0;
+            }
+        }
+        
         .item-content h4 {
             color: #182848;
             margin-bottom: 5px;
+            font-size: 1.05rem;
         }
         
         .item-meta {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: #666;
         }
         
         .item-actions {
             display: flex;
-            gap: 8px;
+            gap: 6px;
         }
         
         .item-actions button {
-            padding: 6px 10px;
-            font-size: 0.85rem;
+            padding: 5px 8px;
+            font-size: 0.8rem;
         }
         
         .preview-container {
             background-color: #f8f9fa;
             border-radius: 8px;
-            padding: 20px;
-            min-height: 400px;
-            max-height: 500px;
+            padding: 15px;
+            min-height: 350px;
+            max-height: 400px;
             overflow-y: auto;
         }
         
         .preview-day {
-            margin-bottom: 25px;
-            padding-bottom: 15px;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
             border-bottom: 1px dashed #ccc;
         }
         
         .day-header {
             background-color: #182848;
             color: white;
-            padding: 10px 15px;
+            padding: 8px 12px;
             border-radius: 6px;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             font-weight: 600;
+            font-size: 1rem;
         }
         
         .preview-item {
             background-color: white;
-            padding: 15px;
-            margin-bottom: 12px;
+            padding: 12px;
+            margin-bottom: 10px;
             border-radius: 6px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
@@ -264,18 +305,19 @@
             display: flex;
             align-items: center;
             gap: 5px;
+            font-size: 0.95rem;
         }
         
         .preview-activity {
             font-weight: 600;
             margin-bottom: 5px;
             color: #182848;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
         }
         
         .preview-details {
             color: #666;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             margin-bottom: 5px;
         }
         
@@ -283,39 +325,40 @@
             color: #28a745;
             font-weight: 600;
             margin-top: 8px;
+            font-size: 0.95rem;
         }
         
         .summary-section {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
-            margin-top: 25px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 20px;
         }
         
-        @media (max-width: 768px) {
+        @media (min-width: 480px) {
             .summary-section {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(4, 1fr);
             }
         }
         
         .summary-box {
             background-color: white;
-            padding: 20px;
+            padding: 15px;
             border-radius: 8px;
             text-align: center;
             box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
         }
         
         .summary-value {
-            font-size: 2rem;
+            font-size: 1.5rem;
             font-weight: 700;
             color: #182848;
-            margin: 10px 0;
+            margin: 8px 0;
         }
         
         .summary-label {
             color: #666;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
         
         .cost-highlight {
@@ -324,12 +367,12 @@
         
         .export-section {
             text-align: center;
-            padding: 20px;
+            padding: 15px;
         }
         
         .empty-message {
             text-align: center;
-            padding: 40px 20px;
+            padding: 30px 15px;
             color: #999;
             font-style: italic;
         }
@@ -337,89 +380,93 @@
         .instructions {
             background-color: #e7f1ff;
             border-left: 4px solid #4b6cb7;
-            padding: 15px;
-            margin-bottom: 20px;
+            padding: 12px 15px;
+            margin-bottom: 15px;
             border-radius: 0 6px 6px 0;
         }
         
         .instructions h3 {
             color: #182848;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
         }
         
         .instructions ul {
-            padding-left: 20px;
+            padding-left: 18px;
+            font-size: 0.9rem;
         }
         
         .instructions li {
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
         
         .total-cost {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             font-weight: 700;
             color: #28a745;
             text-align: center;
-            margin-top: 20px;
-            padding-top: 20px;
+            margin-top: 15px;
+            padding-top: 15px;
             border-top: 2px solid #eee;
         }
         
         .day-group {
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
         
         .day-title {
             background-color: #f0f5ff;
-            padding: 12px 15px;
+            padding: 10px 12px;
             border-radius: 6px;
             font-weight: 600;
             color: #182848;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             border-left: 4px solid #4b6cb7;
+            font-size: 0.95rem;
         }
         
         footer {
             text-align: center;
-            margin-top: 30px;
-            padding-top: 20px;
+            margin-top: 25px;
+            padding-top: 15px;
             color: #666;
             border-top: 1px solid #eee;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
         
         /* 自訂天數樣式 */
         .custom-days-container {
             display: flex;
             align-items: center;
-            gap: 10px;
-            margin-bottom: 15px;
+            gap: 8px;
+            margin-bottom: 12px;
         }
         
         .custom-days-input {
-            width: 80px !important;
+            width: 70px !important;
             text-align: center;
         }
         
         .btn-sm {
-            padding: 8px 16px;
-            font-size: 0.9rem;
+            padding: 8px 12px;
+            font-size: 0.85rem;
         }
         
         .day-options-container {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 10px;
+            gap: 6px;
+            margin-top: 8px;
         }
         
         .day-option {
-            padding: 8px 12px;
+            padding: 6px 10px;
             background-color: #f0f5ff;
             border: 1px solid #c5d4ff;
             border-radius: 4px;
             cursor: pointer;
             transition: all 0.2s;
+            font-size: 0.9rem;
         }
         
         .day-option:hover {
@@ -436,30 +483,30 @@
         .currency-settings {
             background-color: #f8f9fa;
             border-radius: 8px;
-            padding: 15px;
-            margin-bottom: 20px;
+            padding: 12px;
+            margin-bottom: 15px;
             border: 1px solid #e9ecef;
         }
         
         .currency-settings h3 {
             color: #182848;
-            margin-bottom: 15px;
-            font-size: 1.2rem;
+            margin-bottom: 12px;
+            font-size: 1.05rem;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
         
         .currency-toggle {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 12px;
         }
         
         .currency-radio {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
         }
         
         /* 時間選擇器樣式 */
@@ -468,7 +515,7 @@
         }
         
         .time-display {
-            padding: 12px;
+            padding: 10px 12px;
             border: 1px solid #ddd;
             border-radius: 6px;
             background-color: white;
@@ -513,12 +560,12 @@
         
         .time-period-btn {
             flex: 1;
-            padding: 12px;
+            padding: 10px;
             text-align: center;
             background: none;
             border: none;
             cursor: pointer;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: #666;
         }
         
@@ -530,18 +577,24 @@
         
         .time-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 1px;
             background-color: #eee;
         }
         
+        @media (min-width: 480px) {
+            .time-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
         .time-option {
-            padding: 12px 8px;
+            padding: 10px 5px;
             background-color: white;
             border: none;
             cursor: pointer;
             text-align: center;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             transition: all 0.2s;
         }
         
@@ -554,26 +607,15 @@
             color: white;
         }
         
-        .time-separator {
-            padding: 12px 5px;
-            background-color: white;
-            text-align: center;
-            font-weight: bold;
-            color: #4b6cb7;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
         /* 地圖連結樣式 */
         .map-link {
             color: #4b6cb7;
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             display: inline-flex;
             align-items: center;
-            gap: 5px;
-            margin-top: 5px;
+            gap: 4px;
+            margin-top: 4px;
         }
         
         .map-link:hover {
@@ -587,9 +629,15 @@
         /* 匯出選項樣式 */
         .export-options {
             display: flex;
-            gap: 10px;
+            flex-wrap: wrap;
+            gap: 8px;
             justify-content: center;
-            margin-top: 15px;
+            margin-top: 12px;
+        }
+        
+        .export-options .btn {
+            flex: 1;
+            min-width: 120px;
         }
         
         .loading-overlay {
@@ -615,7 +663,7 @@
             width: 50px;
             height: 50px;
             animation: spin 1s linear infinite;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
         
         @keyframes spin {
@@ -629,11 +677,12 @@
             align-items: center;
             gap: 5px;
             margin-bottom: 5px;
+            flex-wrap: wrap;
         }
         
         /* 時間範圍顯示 */
         .time-range {
-            font-size: 1rem;
+            font-size: 0.95rem;
         }
         
         .time-edit-icon {
@@ -646,7 +695,119 @@
         }
         
         .intro-textarea {
-            min-height: 120px;
+            min-height: 100px;
+        }
+        
+        /* 行動裝置選單按鈕 */
+        .mobile-menu-toggle {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #4b6cb7;
+            color: white;
+            border: none;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+        }
+        
+        @media (max-width: 767px) {
+            .mobile-menu-toggle {
+                display: flex;
+            }
+            
+            .form-section {
+                display: block;
+            }
+            
+            .preview-section {
+                display: block;
+            }
+        }
+        
+        /* 彈出式通知 */
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #28a745;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 6px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+        }
+        
+        .notification.show {
+            display: flex;
+            animation: slideUp 0.3s ease;
+        }
+        
+        @keyframes slideUp {
+            from { transform: translate(-50%, 100%); opacity: 0; }
+            to { transform: translate(-50%, 0); opacity: 1; }
+        }
+        
+        /* 手機上的固定表單區域 */
+        @media (max-width: 767px) {
+            .form-section.fixed-bottom {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                border-radius: 15px 15px 0 0;
+                box-shadow: 0 -5px 15px rgba(0,0,0,0.1);
+                z-index: 99;
+                max-height: 80vh;
+                overflow-y: auto;
+                display: none;
+            }
+            
+            .form-section.fixed-bottom.show {
+                display: block;
+            }
+            
+            .preview-section {
+                margin-bottom: 80px;
+            }
+        }
+        
+        /* 隱藏滾動條樣式 */
+        .itinerary-list::-webkit-scrollbar,
+        .preview-container::-webkit-scrollbar,
+        .time-dropdown::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        .itinerary-list::-webkit-scrollbar-track,
+        .preview-container::-webkit-scrollbar-track,
+        .time-dropdown::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 3px;
+        }
+        
+        .itinerary-list::-webkit-scrollbar-thumb,
+        .preview-container::-webkit-scrollbar-thumb,
+        .time-dropdown::-webkit-scrollbar-thumb {
+            background: #c1c1c1;
+            border-radius: 3px;
+        }
+        
+        .itinerary-list::-webkit-scrollbar-thumb:hover,
+        .preview-container::-webkit-scrollbar-thumb:hover,
+        .time-dropdown::-webkit-scrollbar-thumb:hover {
+            background: #a8a8a8;
         }
     </style>
 </head>
@@ -655,6 +816,15 @@
         <div class="loading-spinner"></div>
         <p>正在產生檔案，請稍候...</p>
     </div>
+    
+    <div class="notification" id="notification">
+        <i class="fas fa-check-circle"></i>
+        <span id="notificationText"></span>
+    </div>
+    
+    <button class="mobile-menu-toggle" id="mobileMenuToggle">
+        <i class="fas fa-bars"></i>
+    </button>
     
     <div class="container">
         <header>
@@ -675,7 +845,7 @@
         </div>
         
         <div class="main-content">
-            <div class="form-section">
+            <div class="form-section" id="formSection">
                 <!-- 貨幣設定 -->
                 <div class="currency-settings">
                     <h3><i class="fas fa-money-bill-wave"></i> 貨幣顯示設定</h3>
@@ -738,9 +908,9 @@
                     </div>
                     <div class="form-group">
                         <label for="cost">每人費用</label>
-                        <div style="display: flex; align-items: center; gap: 10px;">
+                        <div style="display: flex; align-items: center; gap: 8px;">
                             <input type="number" id="cost" min="0" placeholder="例如: 500" value="0" style="flex: 1;">
-                            <span id="costCurrency" style="color: #4b6cb7; font-weight: 600; min-width: 60px;">NTD</span>
+                            <span id="costCurrency" style="color: #4b6cb7; font-weight: 600; min-width: 50px; font-size: 0.9rem;">NTD</span>
                         </div>
                     </div>
                 </div>
@@ -748,7 +918,7 @@
                 <div class="form-group">
                     <label for="location">地點</label>
                     <input type="text" id="location" placeholder="例如: 台北市士林區至善路二段221號">
-                    <div style="font-size: 0.8rem; color: #666; margin-top: 5px;">
+                    <div style="font-size: 0.75rem; color: #666; margin-top: 4px;">
                         輸入地址或地標，系統會自動產生Google地圖連結
                     </div>
                 </div>
@@ -761,7 +931,7 @@
                 <div class="form-group intro-group">
                     <label for="introduction">地點介紹</label>
                     <textarea id="introduction" class="intro-textarea" placeholder="詳細介紹這個地點的特色、歷史背景、參觀重點、有趣的故事等"></textarea>
-                    <div style="font-size: 0.8rem; color: #666; margin-top: 5px;">
+                    <div style="font-size: 0.75rem; color: #666; margin-top: 4px;">
                         此介紹會出現在列印版面的詳細介紹頁面中
                     </div>
                 </div>
@@ -787,7 +957,7 @@
                     <button id="clearBtn" class="btn btn-secondary"><i class="fas fa-trash-alt"></i> 清除表單</button>
                 </div>
                 
-                <h2 class="section-title" style="margin-top: 30px;"><i class="fas fa-list"></i> 行程清單</h2>
+                <h2 class="section-title" style="margin-top: 25px;"><i class="fas fa-list"></i> 行程清單</h2>
                 <div id="itineraryList" class="itinerary-list">
                     <div class="empty-message">目前還沒有行程項目，請新增您的第一項行程！</div>
                 </div>
@@ -819,7 +989,7 @@
                 </div>
                 
                 <div class="export-section">
-                    <button id="printBtn" class="btn btn-success" style="padding: 15px 30px; font-size: 1.1rem;">
+                    <button id="printBtn" class="btn btn-success" style="padding: 12px 20px; font-size: 1rem;">
                         <i class="fas fa-print"></i> 列印行程手冊
                     </button>
                     <div class="export-options">
@@ -830,13 +1000,14 @@
                             <i class="fas fa-share-alt"></i> 分享行程
                         </button>
                     </div>
-                    <p style="margin-top: 15px; color: #666; font-size: 0.9rem;">列印專業行程手冊，包含封面、行程總覽和詳細介紹</p>
+                    <p style="margin-top: 12px; color: #666; font-size: 0.85rem;">列印專業行程手冊，包含封面、行程總覽和詳細介紹</p>
                 </div>
             </div>
         </div>
         
         <footer>
             <p>旅遊團行程統整工具 &copy; <span id="currentYear"></span> | 專為旅遊團總召設計</p>
+            <p style="margin-top: 5px; font-size: 0.8rem;">所有設定將自動儲存至您的瀏覽器中</p>
         </footer>
     </div>
 
@@ -885,6 +1056,10 @@
         const mainTransportEl = document.getElementById('mainTransport');
         const loadingOverlay = document.getElementById('loadingOverlay');
         const currentYearEl = document.getElementById('currentYear');
+        const notification = document.getElementById('notification');
+        const notificationText = document.getElementById('notificationText');
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const formSection = document.getElementById('formSection');
         
         // 匯率常數 (簡單固定匯率)
         const EXCHANGE_RATE = 21.5; // 1 AUD = 21.5 NTD
@@ -895,6 +1070,28 @@
             currentYearEl.textContent = new Date().getFullYear();
             
             // 載入保存的設定
+            loadSavedSettings();
+            
+            // 初始化時間選擇器
+            initializeTimeSelector();
+            
+            // 初始化天數選項
+            initializeDayOptions();
+            
+            // 更新顯示
+            renderItineraryList();
+            updatePreview();
+            updateSummary();
+            
+            // 設定事件監聽器
+            setupEventListeners();
+            
+            // 檢查裝置類型並調整UI
+            checkDeviceType();
+        });
+        
+        // 載入保存的設定
+        function loadSavedSettings() {
             const savedDays = localStorage.getItem('tourTotalDays');
             if (savedDays) {
                 totalDays = parseInt(savedDays);
@@ -911,20 +1108,138 @@
                 updateCurrencyDisplay();
             }
             
-            // 初始化時間選擇器
-            initializeTimeSelector();
+            const savedTransportation = localStorage.getItem('defaultTransportation');
+            if (savedTransportation) {
+                transportationInput.value = savedTransportation;
+            }
             
-            // 初始化天數選項
-            initializeDayOptions();
+            // 載入上次編輯的內容（如果有）
+            const savedFormData = localStorage.getItem('tourFormData');
+            if (savedFormData) {
+                try {
+                    const formData = JSON.parse(savedFormData);
+                    if (formData.activity) activityInput.value = formData.activity;
+                    if (formData.location) locationInput.value = formData.location;
+                    if (formData.description) descriptionInput.value = formData.description;
+                    if (formData.introduction) introductionInput.value = formData.introduction;
+                    if (formData.cost) costInput.value = formData.cost;
+                    if (formData.transportation) transportationInput.value = formData.transportation;
+                    if (formData.day) daySelect.value = formData.day;
+                    
+                    if (formData.startTime && formData.endTime) {
+                        selectedStartTime = formData.startTime;
+                        selectedEndTime = formData.endTime;
+                        updateTimeDisplay();
+                    }
+                } catch (e) {
+                    console.log('無法載入表單資料:', e);
+                }
+            }
+        }
+        
+        // 檢查裝置類型並調整UI
+        function checkDeviceType() {
+            const isMobile = window.innerWidth <= 767;
             
-            // 更新顯示
-            renderItineraryList();
-            updatePreview();
-            updateSummary();
+            if (isMobile) {
+                // 在行動裝置上，表單默認隱藏
+                formSection.classList.add('fixed-bottom');
+                mobileMenuToggle.style.display = 'flex';
+            } else {
+                formSection.classList.remove('fixed-bottom');
+                formSection.classList.remove('show');
+                mobileMenuToggle.style.display = 'none';
+            }
+        }
+        
+        // 顯示通知
+        function showNotification(message, type = 'success') {
+            notificationText.textContent = message;
             
-            // 設定事件監聽器
-            setupEventListeners();
+            // 設定通知顏色
+            if (type === 'success') {
+                notification.style.backgroundColor = '#28a745';
+            } else if (type === 'error') {
+                notification.style.backgroundColor = '#dc3545';
+            } else if (type === 'info') {
+                notification.style.backgroundColor = '#17a2b8';
+            }
+            
+            notification.classList.add('show');
+            
+            // 3秒後自動隱藏
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+        
+        // 儲存表單資料到localStorage
+        function saveFormData() {
+            const formData = {
+                activity: activityInput.value,
+                location: locationInput.value,
+                description: descriptionInput.value,
+                introduction: introductionInput.value,
+                cost: costInput.value,
+                transportation: transportationInput.value,
+                day: daySelect.value,
+                startTime: selectedStartTime,
+                endTime: selectedEndTime
+            };
+            
+            localStorage.setItem('tourFormData', JSON.stringify(formData));
+        }
+        
+        // 儲存運輸方式設定
+        function saveTransportationSetting() {
+            localStorage.setItem('defaultTransportation', transportationInput.value);
+        }
+        
+        // 監聽表單變化並自動儲存
+        function setupFormAutoSave() {
+            const formInputs = [
+                activityInput, locationInput, descriptionInput, 
+                introductionInput, costInput, transportationInput, daySelect
+            ];
+            
+            formInputs.forEach(input => {
+                input.addEventListener('input', saveFormData);
+                input.addEventListener('change', saveFormData);
+            });
+            
+            // 儲存運輸方式偏好設定
+            transportationInput.addEventListener('change', saveTransportationSetting);
+        }
+        
+        // 行動裝置選單切換
+        mobileMenuToggle.addEventListener('click', function() {
+            formSection.classList.toggle('show');
+            
+            // 切換圖標
+            const icon = this.querySelector('i');
+            if (formSection.classList.contains('show')) {
+                icon.className = 'fas fa-times';
+                mobileMenuToggle.style.backgroundColor = '#dc3545';
+            } else {
+                icon.className = 'fas fa-bars';
+                mobileMenuToggle.style.backgroundColor = '#4b6cb7';
+            }
         });
+        
+        // 點擊表單外部關閉行動裝置選單
+        document.addEventListener('click', function(event) {
+            if (window.innerWidth <= 767) {
+                if (!formSection.contains(event.target) && !mobileMenuToggle.contains(event.target)) {
+                    formSection.classList.remove('show');
+                    const icon = mobileMenuToggle.querySelector('i');
+                    icon.className = 'fas fa-bars';
+                    mobileMenuToggle.style.backgroundColor = '#4b6cb7';
+                }
+            }
+        });
+        
+        // 響應式視窗大小變化
+        window.addEventListener('resize', checkDeviceType);
         
         // 初始化時間選擇器
         function initializeTimeSelector() {
@@ -989,6 +1304,7 @@
                     
                     updateTimeDisplay();
                     updateTimeSelection();
+                    saveFormData(); // 儲存表單資料
                 });
             });
             
@@ -1066,6 +1382,9 @@
                     timeDisplay.classList.remove('active');
                 }
             });
+            
+            // 設定表單自動儲存
+            setupFormAutoSave();
         }
         
         // 初始化天數選項
@@ -1095,6 +1414,7 @@
                     });
                     // 為當前選項添加active類別
                     this.classList.add('active');
+                    saveFormData(); // 儲存表單資料
                 });
                 
                 dayOptionsContainer.appendChild(dayOption);
@@ -1123,8 +1443,8 @@
                     const inputContainer = document.createElement('div');
                     inputContainer.className = 'custom-days-input-container';
                     inputContainer.style.display = 'flex';
-                    inputContainer.style.gap = '10px';
-                    inputContainer.style.marginTop = '10px';
+                    inputContainer.style.gap = '8px';
+                    inputContainer.style.marginTop = '8px';
                     
                     const input = document.createElement('input');
                     input.type = 'number';
@@ -1147,8 +1467,9 @@
                             renderItineraryList();
                             updatePreview();
                             updateSummary();
+                            showNotification(`天數已更新為 ${totalDays} 天`, 'success');
                         } else {
-                            alert('請輸入1到30之間的天數');
+                            showNotification('請輸入1到30之間的天數', 'error');
                         }
                     });
                     
@@ -1191,6 +1512,7 @@
                 currentCurrency = 'TWD';
                 localStorage.setItem('tourCurrency', currentCurrency);
                 updateCurrencyDisplay();
+                showNotification('貨幣已切換為新台幣 (NTD)', 'info');
             }
         });
         
@@ -1199,6 +1521,7 @@
                 currentCurrency = 'AUD';
                 localStorage.setItem('tourCurrency', currentCurrency);
                 updateCurrencyDisplay();
+                showNotification('貨幣已切換為澳幣 (AUD)', 'info');
             }
         });
         
@@ -1261,13 +1584,13 @@
         addBtn.addEventListener('click', function() {
             // 驗證必要欄位
             if (!activityInput.value.trim()) {
-                alert('請填寫活動名稱');
+                showNotification('請填寫活動名稱', 'error');
                 activityInput.focus();
                 return;
             }
             
             if (!selectedStartTime || !selectedEndTime) {
-                alert('請選擇開始時間和結束時間');
+                showNotification('請選擇開始時間和結束時間', 'error');
                 timeDisplay.click();
                 return;
             }
@@ -1275,7 +1598,7 @@
             // 計算時長
             const duration = calculateDuration(selectedStartTime, selectedEndTime);
             if (duration <= 0) {
-                alert('結束時間必須晚於開始時間');
+                showNotification('結束時間必須晚於開始時間', 'error');
                 return;
             }
             
@@ -1310,12 +1633,23 @@
             // 清除表單
             clearForm();
             
-            // 提示成功
-            alert('行程項目已新增！');
+            // 顯示成功通知
+            showNotification('行程項目已新增！', 'success');
+            
+            // 在行動裝置上關閉表單
+            if (window.innerWidth <= 767) {
+                formSection.classList.remove('show');
+                const icon = mobileMenuToggle.querySelector('i');
+                icon.className = 'fas fa-bars';
+                mobileMenuToggle.style.backgroundColor = '#4b6cb7';
+            }
         });
         
         // 清除表單
-        clearBtn.addEventListener('click', clearForm);
+        clearBtn.addEventListener('click', function() {
+            clearForm();
+            showNotification('表單已清除', 'info');
+        });
         
         function clearForm() {
             // 重置時間
@@ -1330,6 +1664,9 @@
             introductionInput.value = '';
             costInput.value = '0';
             
+            // 清除表單儲存資料
+            localStorage.removeItem('tourFormData');
+            
             activityInput.focus();
         }
         
@@ -1341,6 +1678,7 @@
                 renderItineraryList();
                 updatePreview();
                 updateSummary();
+                showNotification('行程項目已刪除', 'info');
             }
         }
         
@@ -1384,6 +1722,16 @@
             
             // 聚焦到活動名稱欄位
             activityInput.focus();
+            
+            // 在行動裝置上顯示表單
+            if (window.innerWidth <= 767) {
+                formSection.classList.add('show');
+                const icon = mobileMenuToggle.querySelector('i');
+                icon.className = 'fas fa-times';
+                mobileMenuToggle.style.backgroundColor = '#dc3545';
+            }
+            
+            showNotification('正在編輯行程項目', 'info');
         }
         
         // 渲染行程清單
@@ -1423,10 +1771,10 @@
                         </div>
                     </div>
                     <div class="item-actions">
-                        <button onclick="editItem(${item.id})" class="btn btn-secondary" style="padding: 6px 10px;">
+                        <button onclick="editItem(${item.id})" class="btn btn-secondary" style="padding: 5px 8px;">
                             <i class="fas fa-edit"></i>
                         </button>
-                        <button onclick="deleteItem(${item.id})" class="btn btn-danger" style="padding: 6px 10px;">
+                        <button onclick="deleteItem(${item.id})" class="btn btn-danger" style="padding: 5px 8px;">
                             <i class="fas fa-trash-alt"></i>
                         </button>
                     </div>
@@ -1564,7 +1912,7 @@
         // 分享行程功能
         shareBtn.addEventListener('click', function() {
             if (itineraryItems.length === 0) {
-                alert('請先新增行程項目再分享！');
+                showNotification('請先新增行程項目再分享！', 'error');
                 return;
             }
             
@@ -1607,7 +1955,7 @@
             
             // 複製到剪貼簿
             navigator.clipboard.writeText(shareText).then(() => {
-                alert('行程已複製到剪貼簿！\n\n您可以貼上到Line、WhatsApp等通訊軟體與團員分享。');
+                showNotification('行程已複製到剪貼簿！可以貼上分享', 'success');
             }).catch(err => {
                 console.error('複製失敗:', err);
                 // 備用方案
@@ -1617,14 +1965,14 @@
                 textarea.select();
                 document.execCommand('copy');
                 document.body.removeChild(textarea);
-                alert('行程已複製到剪貼簿！\n\n您可以貼上到Line、WhatsApp等通訊軟體與團員分享。');
+                showNotification('行程已複製到剪貼簿！可以貼上分享', 'success');
             });
         });
         
         // 列印功能
         printBtn.addEventListener('click', function() {
             if (itineraryItems.length === 0) {
-                alert('請先新增行程項目再列印！');
+                showNotification('請先新增行程項目再列印！', 'error');
                 return;
             }
             
@@ -1786,7 +2134,7 @@
                     
                     /* 通用列印樣式 */
                     .print-page {
-                        padding: 20px;
+                        padding: 15mm;
                         min-height: 297mm;
                         box-sizing: border-box;
                         page-break-after: always;
@@ -2010,9 +2358,9 @@
                     
                     .page-footer {
                         position: absolute;
-                        bottom: 20px;
-                        left: 20px;
-                        right: 20px;
+                        bottom: 15mm;
+                        left: 15mm;
+                        right: 15mm;
                         display: flex;
                         justify-content: space-between;
                         align-items: center;
@@ -2066,6 +2414,12 @@
                     .close-btn:hover {
                         background-color: #5a6268;
                     }
+                    
+                    @media print {
+                        .print-page {
+                            padding: 15mm;
+                        }
+                    }
                 </style>
             </head>
             <body>
@@ -2088,28 +2442,41 @@
             `;
         }
         
-        // 匯出為HTML檔案（保留此功能作為備用）
+        // 匯出為HTML檔案
         exportHtmlBtn.addEventListener('click', function() {
             if (itineraryItems.length === 0) {
-                alert('請先新增行程項目再匯出！');
+                showNotification('請先新增行程項目再匯出！', 'error');
                 return;
             }
             
-            // 建立匯出的HTML內容
-            const exportHTML = generateExportHtmlContent();
+            // 顯示載入動畫
+            loadingOverlay.style.display = 'flex';
             
-            // 建立下載連結
-            const blob = new Blob([exportHTML], { type: 'text/html' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `旅遊行程手冊_${new Date().toISOString().slice(0,10)}.html`;
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
-            
-            alert('行程手冊已匯出為HTML檔案！');
+            // 延遲執行，讓載入動畫顯示
+            setTimeout(() => {
+                try {
+                    // 建立匯出的HTML內容
+                    const exportHTML = generateExportHtmlContent();
+                    
+                    // 建立下載連結
+                    const blob = new Blob([exportHTML], { type: 'text/html' });
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = `旅遊行程手冊_${new Date().toISOString().slice(0,10)}.html`;
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    URL.revokeObjectURL(url);
+                    
+                    showNotification('行程手冊已匯出為HTML檔案！', 'success');
+                } catch (error) {
+                    showNotification('匯出失敗，請重試', 'error');
+                    console.error('匯出錯誤:', error);
+                } finally {
+                    loadingOverlay.style.display = 'none';
+                }
+            }, 500);
         });
         
         // 產生匯出的HTML內容（簡化版，用於HTML匯出）
@@ -2237,6 +2604,11 @@
                         gap: 15px;
                         margin-bottom: 30px;
                     }
+                    @media (max-width: 768px) {
+                        .summary {
+                            grid-template-columns: repeat(2, 1fr);
+                        }
+                    }
                     .summary-box {
                         background-color: white;
                         padding: 20px;
@@ -2311,11 +2683,6 @@
                         border-top: 1px solid #dee2e6;
                         color: #666;
                         font-size: 14px;
-                    }
-                    @media print {
-                        .summary {
-                            grid-template-columns: repeat(2, 1fr);
-                        }
                     }
                 </style>
             </head>
